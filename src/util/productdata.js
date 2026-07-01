@@ -2,7 +2,7 @@ export const newArrivals = [
   {
     id: 1,
     name: "T-shirt with Tape Details",
-    image: "/public/images/image 7.png",
+    image: "/images/image 7.png",
     price: 120,
     oldPrice: null,
     rating: 4.5,
@@ -11,7 +11,7 @@ export const newArrivals = [
   {
     id: 2,
     name: "Skinny Fit Jeans",
-    image: "/public/images/image 8.png",
+    image: "/images/image 8.png",
     price: 240,
     oldPrice: 260,
     rating: 3.5,
@@ -20,7 +20,7 @@ export const newArrivals = [
   {
     id: 3,
     name: "Checkered Shirt",
-    image: "/public/images/image 9.png",
+    image: "/images/image 9.png",
     price: 180,
     oldPrice: null,
     rating: 4.5,
@@ -29,7 +29,7 @@ export const newArrivals = [
   {
     id: 4,
     name: "Sleeve Striped T-shirt",
-    image: "/public/images/image 10.png",
+    image: "/images/image 10.png",
     price: 130,
     oldPrice: 160,
     rating: 4.5,
@@ -41,7 +41,7 @@ export const topSelling = [
   {
     id: 5,
     name: "Vertical Striped Shirt",
-    image: "/public/images/image 11.png",
+    image: "/images/image 11.png",
     price: 212,
     oldPrice: 232,
     rating: 5,
@@ -50,7 +50,7 @@ export const topSelling = [
   {
     id: 6,
     name: "Courage Graphic T-shirt",
-    image: "/public/images/image 12.png",
+    image: "/images/image 12.png",
     price: 145,
     oldPrice: null,
     rating: 4,
@@ -68,7 +68,7 @@ export const topSelling = [
   {
     id: 8,
     name: "Faded Skinny Jeans",
-    image: "/public/images/image 14.png",
+    image: "/images/image 14.png",
     price: 210,
     oldPrice: null,
     rating: 4.5,
