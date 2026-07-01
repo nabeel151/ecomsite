@@ -59,7 +59,7 @@ export const topSelling = [
   {
     id: 7,
     name: "Loose Fit Bermuda Shorts",
-    image: "/public/images/image 13.png",
+    image: "/images/image 13.png",
     price: 80,
     oldPrice: null,
     rating: 3,

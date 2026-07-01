@@ -2,22 +2,22 @@ export default function BrowseStyle() {
   const styles = [
     {
       name: "Casual",
-      image: "/public/images/image 15.png",
+      image: "/images/image 15.png",
       wide: false,
     },
     {
       name: "Formal",
-      image: "/public/images/image 16.png",
+      image: "/images/image 16.png",
       wide: true,
     },
     {
       name: "Party",
-      image: "/public/images/image 17.png",
+      image: "/images/image 17.png",
       wide: true,
     },
     {
       name: "Gym",
-      image: "/public/images/image 18.png",
+      image: "/images/image 18.png",
       wide: false,
     },
   ];
