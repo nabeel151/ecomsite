@@ -1,24 +1,32 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import ProductSection from "./components/ProductSection";
-import BrowseStyle from "./components/BrowseStyle";
-import Testimonials from "./components/Testimonals";
 import Footer from "./components/Footer";
+
+import Home from "./pages/Home";
+import ProductDetail from "./pages/Product_details";
+import AddtoCard  from "./pages/AddtoCard";
+
 import "./App.css";
-
-
 
 function App() {
   return (
-    <>
-      <Header />
-      <Hero />
-      <ProductSection />
-      <BrowseStyle />
-      <Testimonials />
-            <Footer />
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col">
+        <Header />
 
-    </>
+      <main className="flex-1 pt-24">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+
+            {/* Add Cart Route */}
+            <Route path="/cart" element={<AddtoCard />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

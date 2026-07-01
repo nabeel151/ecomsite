@@ -8,11 +8,13 @@ import {
   X,
 } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full">
+  <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
       {/* Top Bar */}
       <div className="bg-black text-white text-[10px] sm:text-xs py-2 px-4 text-center relative">
         <span>
@@ -41,9 +43,11 @@ export default function Header() {
             </button>
 
             {/* Logo */}
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
-              SHOP.CO
-            </h1>
+            <Link to="/">
+              <h1 className="text-2xl sm:text-3xl font-black tracking-tight cursor-pointer">
+                SHOP.CO
+              </h1>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-sm text-gray-700">
@@ -75,7 +79,11 @@ export default function Header() {
           {/* Icons */}
           <div className="flex items-center gap-3 sm:gap-4">
             <Search className="lg:hidden cursor-pointer" size={20} />
-            <ShoppingCart className="cursor-pointer" size={22} />
+
+            <Link to="/cart">
+              <ShoppingCart className="cursor-pointer" size={22} />
+            </Link>
+
             <CircleUserRound className="cursor-pointer" size={22} />
           </div>
         </div>
