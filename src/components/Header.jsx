@@ -6,15 +6,19 @@ import {
   ChevronDown,
   Menu,
   X,
+  Shirt,
 } from "lucide-react";
-
 import { Link } from "react-router-dom";
+import useCategories from "../hooks/useCategories";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const { categories, loading } = useCategories();
 
   return (
-  <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
       {/* Top Bar */}
       <div className="bg-black text-white text-[10px] sm:text-xs py-2 px-4 text-center relative">
         <span>
@@ -23,18 +27,14 @@ export default function Header() {
             Sign Up Now
           </a>
         </span>
-
-        <button className="absolute right-3 top-1/2 -translate-y-1/2">
-          ✕
-        </button>
       </div>
 
       {/* Main Header */}
-      <div className="bg-white shadow-sm px-4 sm:px-6 lg:px-10 py-4">
+      <div className="px-4 sm:px-6 lg:px-10 py-4">
         <div className="flex items-center justify-between">
           {/* Left */}
           <div className="flex items-center gap-4 lg:gap-10">
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu */}
             <button
               className="md:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
@@ -44,25 +44,71 @@ export default function Header() {
 
             {/* Logo */}
             <Link to="/">
-              <h1 className="text-2xl sm:text-3xl font-black tracking-tight cursor-pointer">
+              <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
                 SHOP.CO
               </h1>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-sm text-gray-700">
-              <a href="#" className="flex items-center gap-1 hover:text-black">
-                Shop <ChevronDown size={16} />
-              </a>
-              <a href="#" className="hover:text-black">
+            <nav className="hidden md:flex items-center gap-6 text-sm text-gray-700">
+              {/* Shop Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowDropdown(!showDropdown)}
+                  className="flex items-center gap-1 hover:text-black font-medium"
+                >
+                  Shop
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform ${
+                      showDropdown ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {showDropdown && (
+                  <div className="absolute top-10 left-0 w-72 bg-white border border-gray-200 rounded-2xl shadow-xl p-3 z-50">
+                    <h3 className="px-3 pb-2 text-xs uppercase text-gray-400 font-semibold">
+                      Categories
+                    </h3>
+
+                    {loading ? (
+                      <p className="px-3 py-2">Loading...</p>
+                    ) : (
+                      categories.slice(0, 6).map((category) => (
+                        <Link
+                          key={category.id}
+                          to={`/category/${category.id}`}
+                          onClick={() => setShowDropdown(false)}
+                          className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-gray-100 transition"
+                        >
+                          <div className="bg-gray-100 p-2 rounded-full">
+                            <Shirt size={18} />
+                          </div>
+
+                          <div>
+                            <p className="font-medium text-gray-800">
+                              {category.name}
+                            </p>
+                          </div>
+                        </Link>
+                      ))
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <Link to="/sale" className="hover:text-black">
                 On Sale
-              </a>
-              <a href="#" className="hover:text-black">
+              </Link>
+
+              <Link to="/products" className="hover:text-black">
                 New Arrivals
-              </a>
-              <a href="#" className="hover:text-black">
+              </Link>
+
+              <Link to="/brands" className="hover:text-black">
                 Brands
-              </a>
+              </Link>
             </nav>
           </div>
 
@@ -77,7 +123,7 @@ export default function Header() {
           </div>
 
           {/* Icons */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-4">
             <Search className="lg:hidden cursor-pointer" size={20} />
 
             <Link to="/cart">
@@ -88,15 +134,43 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden mt-4 border-t pt-4 flex flex-col gap-4 text-gray-700">
-            <a href="#" className="flex items-center gap-1">
-              Shop <ChevronDown size={16} />
-            </a>
-            <a href="#">On Sale</a>
-            <a href="#">New Arrivals</a>
-            <a href="#">Brands</a>
+          <div className="md:hidden mt-4 border-t pt-4 flex flex-col gap-3">
+            <button
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="flex items-center gap-2 font-medium"
+            >
+              Shop
+              <ChevronDown
+                size={16}
+                className={`transition-transform ${
+                  showDropdown ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {showDropdown && (
+              <div className="ml-2 bg-gray-50 rounded-xl p-3 flex flex-col gap-2">
+                {categories.slice(0, 6).map((category) => (
+                  <Link
+                    key={category.id}
+                    to={`/category/${category.id}`}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setShowDropdown(false);
+                    }}
+                    className="px-3 py-2 rounded-lg hover:bg-gray-200"
+                  >
+                    {category.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            <Link to="/sale">On Sale</Link>
+            <Link to="/products">New Arrivals</Link>
+            <Link to="/brands">Brands</Link>
           </div>
         )}
       </div>

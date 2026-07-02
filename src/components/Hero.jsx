@@ -3,18 +3,24 @@ export default function Hero() {
     <section className="w-full">
       {/* Hero */}
       <div
-        className="relative overflow-hidden bg-no-repeat bg-right bg-cover min-h-[650px]"
+        className="
+          relative overflow-hidden
+          bg-no-repeat
+         bg-[length:180%] sm:bg-[length:120%] lg:bg-cover
+bg-center sm:bg-right
+min-h-[950px] sm:min-h-[760px] lg:min-h-[650px]
+        "
         style={{
           backgroundImage: "url('/images/Rectangle 2.jpg')",
         }}
       >
-        {/* Optional overlay for readability */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-white/10"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 min-h-[650px] flex items-center">
-          
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 min-h-[inherit] flex items-start lg:items-center">
+
           {/* Left Content */}
-          <div className="w-full lg:w-1/2 py-10 text-center lg:text-left">
+          <div className="w-full lg:w-1/2 pt-10 lg:pt-0 text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-none">
               FIND CLOTHES
               <br />
@@ -29,7 +35,7 @@ export default function Hero() {
               of style.
             </p>
 
-            <button className="mt-8 bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">
+            <button className="mt-8 w-full sm:w-auto bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">
               Shop Now
             </button>
 
@@ -40,8 +46,7 @@ export default function Hero() {
                 <p className="text-gray-500 text-xs sm:text-sm">
                   International Brands
                 </p>
-
-                <div className="absolute right-0 top-1 h-10 sm:h-12 w-[1px] bg-gray-300"></div>
+                <div className="absolute right-0 top-1 h-10 sm:h-12 w-px bg-gray-300"></div>
               </div>
 
               <div className="relative pr-4 sm:pr-8">
@@ -49,8 +54,7 @@ export default function Hero() {
                 <p className="text-gray-500 text-xs sm:text-sm">
                   High-Quality Products
                 </p>
-
-                <div className="absolute right-0 top-1 h-10 sm:h-12 w-[1px] bg-gray-300"></div>
+                <div className="absolute right-0 top-1 h-10 sm:h-12 w-px bg-gray-300"></div>
               </div>
 
               <div>
@@ -63,12 +67,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Decorative Stars */}
-        <div className="absolute top-14 right-28 text-8xl hidden lg:block">
+        {/* Stars */}
+        <div className="absolute top-14 right-6 sm:right-16 lg:right-28 text-4xl sm:text-6xl lg:text-8xl">
           ✦
         </div>
 
-        <div className="absolute left-[55%] top-[40%] text-6xl hidden lg:block">
+        <div className="absolute left-[8%] sm:left-[55%] top-[58%] lg:top-[40%] text-3xl sm:text-4xl lg:text-6xl">
           ✦
         </div>
       </div>
@@ -79,19 +83,15 @@ export default function Hero() {
           <span className="text-xl sm:text-2xl md:text-3xl font-bold tracking-widest">
             VERSACE
           </span>
-
           <span className="text-xl sm:text-2xl md:text-3xl font-light tracking-[0.2em]">
             ZARA
           </span>
-
           <span className="text-xl sm:text-2xl md:text-3xl font-serif tracking-wide">
             GUCCI
           </span>
-
           <span className="text-2xl sm:text-3xl md:text-4xl font-serif font-semibold tracking-wider">
             PRADA
           </span>
-
           <span className="text-xl sm:text-2xl md:text-3xl font-light italic">
             Calvin Klein
           </span>

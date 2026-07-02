@@ -4,7 +4,9 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import ProductDetail from "./pages/Product_details";
-import AddtoCard  from "./pages/AddtoCard";
+import AddtoCard from "./pages/AddtoCard";
+import AllProducts from "./pages/AllProducts";
+import CategoryProducts from "./pages/CategoryProducts"; // ADD THIS
 
 import "./App.css";
 
@@ -14,13 +16,25 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <Header />
 
-      <main className="flex-1 pt-24">
+        <main className="flex-1 pt-24">
           <Routes>
+            {/* Home */}
             <Route path="/" element={<Home />} />
+
+            {/* All Products */}
+            <Route path="/products" element={<AllProducts />} />
+
+            {/* Product Detail */}
             <Route path="/product/:id" element={<ProductDetail />} />
 
-            {/* Add Cart Route */}
+            {/* Cart */}
             <Route path="/cart" element={<AddtoCard />} />
+
+            {/* Category Products */}
+            <Route
+              path="/category/:id"
+              element={<CategoryProducts />}
+            />
           </Routes>
         </main>
 
