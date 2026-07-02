@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/Product_details";
 import AddtoCard from "./pages/AddtoCard";
 import AllProducts from "./pages/AllProducts";
-import CategoryProducts from "./pages/CategoryProducts"; // ADD THIS
+import CategoryProducts from "./pages/CategoryProducts"; // 
 
 import "./App.css";
 
