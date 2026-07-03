@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 
-import { ProductProvider } from"./context/ProductContext";
-import { CategoryProvider } from "./context/CategoryContext";
+import { ProductProvider } from"./context/ProductContext.jsx"
+import { CategoryProvider } from "./context/CategoryContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
